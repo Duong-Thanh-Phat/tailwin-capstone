@@ -1145,6 +1145,331 @@
           </div>
         </div>
       </section>
+      <section id="pricing" x-data="setup()" class="i pg fh rm ji gp uq">
+        <!-- Bg Shapes -->
+        <img src="images/shape-06.svg" alt="Shape" class="h aa y" />
+        <img src="images/shape-03.svg" alt="Shape" class="h ca u" />
+        <img src="images/shape-07.svg" alt="Shape" class="h w da ee" />
+        <img src="images/shape-12.svg" alt="Shape" class="h p s" />
+        <img src="images/shape-13.svg" alt="Shape" class="h r q" />
+
+        <!-- Section Title Start -->
+        <div
+          x-data="{ sectionTitle: `We Offer Great Affordable Premium Prices.`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.`}"
+          bis_skin_checked="1"
+        >
+          <div
+            class="animate_top bb ze rj ki xn vq"
+            data-sr-id="16"
+            style="
+              visibility: visible;
+              opacity: 1;
+              transform: matrix3d(
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              );
+              transition: all, opacity 2.8s cubic-bezier(0.5, 0, 0, 1),
+                transform 2.8s cubic-bezier(0.5, 0, 0, 1);
+            "
+            bis_skin_checked="1"
+          >
+            <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b">
+              We Offer Great Affordable Premium Prices.
+            </h2>
+            <p class="bb on/5 wo/5 hq" x-text="sectionTitleText">
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout. The
+              point of using.
+            </p>
+          </div>
+        </div>
+        <!-- Section Title End -->
+
+        <!-- Pricing switcher -->
+        <div class="tc wf xf jb og" bis_skin_checked="1">
+          <span class="ek kk wm">Bill Monthly</span>
+          <button
+            class="i rg gm"
+            @click="billPlan == 'monthly' ? billPlan = 'annually' : billPlan = 'monthly'"
+          >
+            <div
+              class="fe id bl gh rg xk outline-none"
+              bis_skin_checked="1"
+            ></div>
+            <div
+              class="h vc wf xf ge jd cl jl ml mf hh rg yk ea fa ff"
+              :class="{ 'ff': billPlan == 'monthly', 'gf': billPlan == 'annually' }"
+              bis_skin_checked="1"
+            ></div>
+          </button>
+          <span class="ek kk wm">Bill Annually</span>
+        </div>
+
+        <!-- Pricing Table -->
+        <div class="bb ze i va ki xn yq bc" bis_skin_checked="1">
+          <div class="wc qf pn xo jg" bis_skin_checked="1">
+            <template x-for="(plan, i) in plans" x-key="i">
+              <!-- Pricing Item -->
+              <div class="animate_top rj sg hh sm vk xm hi nj oj">
+                <h4 x-text="plan.name" class="wj kk wm fb"></h4>
+
+                <div class="tc wf xf kg cc">
+                  <h2
+                    :class="plan.name == 'Basic' ? 'text-green-500' : ''"
+                    x-text="`$${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"
+                    class="fk _j kk wm"
+                  ></h2>
+                  <span
+                    x-text="billPlan == 'monthly' ? '/per month' : '/per year'"
+                    class="sc ak kk wm"
+                  ></span>
+                </div>
+
+                <p class="ur dc">No credit card required</p>
+
+                <!-- Button -->
+                <a
+                  href="#"
+                  class="ek rg lk ml il gi ri"
+                  :class="plan.name == 'Growth Plan' ? 'gh sl' : 'mh tl'"
+                >
+                  Try for free
+                </a>
+
+                <!-- Features -->
+                <ul class="tc sf bg ob fb">
+                  <template x-for="(feature, i) in plan.features" x-key="i">
+                    <li x-text="feature"></li>
+                  </template>
+                </ul>
+
+                <p class="kk wm">7-day free trial</p>
+              </div>
+            </template>
+            <div
+              class="animate_top rj sg hh sm vk xm hi nj oj"
+              data-sr-id="17"
+              style="
+                visibility: visible;
+                opacity: 1;
+                transform: matrix3d(
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                );
+                transition: all, opacity 2.8s cubic-bezier(0.5, 0, 0, 1),
+                  transform 2.8s cubic-bezier(0.5, 0, 0, 1);
+              "
+              bis_skin_checked="1"
+            >
+              <h4 x-text="plan.name" class="wj kk wm fb">Starter</h4>
+
+              <div class="tc wf xf kg cc" bis_skin_checked="1">
+                <h2
+                  :class="plan.name == 'Basic' ? 'text-green-500' : ''"
+                  x-text="`$${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"
+                  class="fk _j kk wm"
+                >
+                  $29
+                </h2>
+                <span
+                  x-text="billPlan == 'monthly' ? '/per month' : '/per year'"
+                  class="sc ak kk wm"
+                  >/per month</span
+                >
+              </div>
+
+              <p class="ur dc">No credit card required</p>
+
+              <!-- Button -->
+              <a
+                href="#"
+                class="ek rg lk ml il gi ri mh tl"
+                :class="plan.name == 'Growth Plan' ? 'gh sl' : 'mh tl'"
+              >
+                Try for free
+              </a>
+
+              <!-- Features -->
+              <ul class="tc sf bg ob fb">
+                <template x-for="(feature, i) in plan.features" x-key="i">
+                  <li x-text="feature"></li>
+                </template>
+                <li x-text="feature">400 GB Storaget</li>
+                <li x-text="feature">Unlimited Photos &amp; Videos</li>
+                <li x-text="feature">Exclusive Support</li>
+              </ul>
+
+              <p class="kk wm">7-day free trial</p>
+            </div>
+            <div
+              class="animate_top rj sg hh sm vk xm hi nj oj"
+              data-sr-id="18"
+              style="
+                visibility: visible;
+                opacity: 1;
+                transform: matrix3d(
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                );
+                transition: all, opacity 2.8s cubic-bezier(0.5, 0, 0, 1),
+                  transform 2.8s cubic-bezier(0.5, 0, 0, 1);
+              "
+              bis_skin_checked="1"
+            >
+              <h4 x-text="plan.name" class="wj kk wm fb">Growth Plan</h4>
+
+              <div class="tc wf xf kg cc" bis_skin_checked="1">
+                <h2
+                  :class="plan.name == 'Basic' ? 'text-green-500' : ''"
+                  x-text="`$${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"
+                  class="fk _j kk wm"
+                >
+                  $59
+                </h2>
+                <span
+                  x-text="billPlan == 'monthly' ? '/per month' : '/per year'"
+                  class="sc ak kk wm"
+                  >/per month</span
+                >
+              </div>
+
+              <p class="ur dc">No credit card required</p>
+
+              <!-- Button -->
+              <a
+                href="#"
+                class="ek rg lk ml il gi ri gh sl"
+                :class="plan.name == 'Growth Plan' ? 'gh sl' : 'mh tl'"
+              >
+                Try for free
+              </a>
+
+              <!-- Features -->
+              <ul class="tc sf bg ob fb">
+                <template x-for="(feature, i) in plan.features" x-key="i">
+                  <li x-text="feature"></li>
+                </template>
+                <li x-text="feature">400 GB Storaget</li>
+                <li x-text="feature">Unlimited Photos &amp; Videos</li>
+                <li x-text="feature">Exclusive Support</li>
+              </ul>
+
+              <p class="kk wm">7-day free trial</p>
+            </div>
+            <div
+              class="animate_top rj sg hh sm vk xm hi nj oj"
+              data-sr-id="19"
+              style="
+                visibility: visible;
+                opacity: 1;
+                transform: matrix3d(
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                );
+                transition: all, opacity 2.8s cubic-bezier(0.5, 0, 0, 1),
+                  transform 2.8s cubic-bezier(0.5, 0, 0, 1);
+              "
+              bis_skin_checked="1"
+            >
+              <h4 x-text="plan.name" class="wj kk wm fb">Business</h4>
+
+              <div class="tc wf xf kg cc" bis_skin_checked="1">
+                <h2
+                  :class="plan.name == 'Basic' ? 'text-green-500' : ''"
+                  x-text="`$${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"
+                  class="fk _j kk wm"
+                >
+                  $139
+                </h2>
+                <span
+                  x-text="billPlan == 'monthly' ? '/per month' : '/per year'"
+                  class="sc ak kk wm"
+                  >/per month</span
+                >
+              </div>
+
+              <p class="ur dc">No credit card required</p>
+
+              <!-- Button -->
+              <a
+                href="#"
+                class="ek rg lk ml il gi ri mh tl"
+                :class="plan.name == 'Growth Plan' ? 'gh sl' : 'mh tl'"
+              >
+                Try for free
+              </a>
+
+              <!-- Features -->
+              <ul class="tc sf bg ob fb">
+                <template x-for="(feature, i) in plan.features" x-key="i">
+                  <li x-text="feature"></li>
+                </template>
+                <li x-text="feature">400 GB Storaget</li>
+                <li x-text="feature">Unlimited Photos &amp; Videos</li>
+                <li x-text="feature">Exclusive Support</li>
+              </ul>
+
+              <p class="kk wm">7-day free trial</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <script src="index.js"></script>
     </main>
